@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin({"http://localhost:4200"})
+@CrossOrigin({"http://localhost:4200", "https://redactedbank-cicd-spring.onrender.com"})
 @RequestMapping("messages")
 @AllArgsConstructor
 public class MessageController {
@@ -42,7 +42,7 @@ public class MessageController {
     @GetMapping("{messageContent}")
     public String createMessage(@PathVariable String messageContent) {
         String message = repository.save(MessageBean.builder().message(messageContent).build()).getMessage();
-        return "Message: `%s` was save successfully".formatted(message);
+        return "Message: `%s` was saved successfully init?".formatted(message);
     }
 
 }
